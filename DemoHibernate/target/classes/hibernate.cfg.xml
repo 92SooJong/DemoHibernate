@@ -13,7 +13,7 @@
         <!-- create로 셋팅하면 SessionFactory가 생성되었을때 이전 데이터 다 지우고 새로 채움 -->
         <!-- update로 셋팅하면 schema를 갱신한다. -->
         <property name="hibernate.hbm2ddl.auto">update</property>
-
+        <property name="show_sql">true</property>
 
 
 
