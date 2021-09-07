@@ -8,11 +8,19 @@
         <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/school</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">385538</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+<!--        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!-- You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'type=MyISAM' at line 1-->
+
+        <!-- autocommit이 true일때 create 가 정상동작 함.
+        INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@751ae8a4] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+        -->
+
+        <property name="connection.autocommit">true</property>
 
         <!-- create로 셋팅하면 SessionFactory가 생성되었을때 이전 데이터 다 지우고 새로 채움 -->
         <!-- update로 셋팅하면 schema를 갱신한다. -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="show_sql">true</property>
 
 

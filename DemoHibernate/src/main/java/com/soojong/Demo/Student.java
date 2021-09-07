@@ -9,7 +9,7 @@ public class Student { // POJO
     private int student_id;
 
     @Column(name= "student_name") // DB에 반영될 컬럼명 지정
-    private StudentName name;
+    private String name;
     @Transient // DB에 반영되지 않음
     private String addr;
     private int grade;
@@ -23,11 +23,11 @@ public class Student { // POJO
         this.student_id = student_id;
     }
 
-    public StudentName getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(StudentName name) { this.name = name; }
+    public void setName(String name) { this.name = name; }
 
     public String getAddr() {
         return addr;
