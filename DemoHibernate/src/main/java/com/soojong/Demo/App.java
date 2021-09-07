@@ -8,22 +8,30 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.internal.SessionFactoryServiceRegistryBuilderImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class App {
 
     public static void main(String[] args) {
 
+        Laptop laptop = new Laptop();
+        laptop.setLid(101);
+        laptop.setLaptop_name("dell");
+        
+        List<Laptop> laptopArrayList = new ArrayList<>();
+        laptopArrayList.add(laptop);
+
         // insert할 데이터를 셋팅한다.
         Student student = new Student();
-        StudentName studentName = new StudentName();
-        student.setStudent_id(2);
+        //StudentName studentName = new StudentName();
+        student.setSid(2);
         student.setName("Soojong");
         student.setAddr("Seoul");
         student.setGrade(3);
+        student.setLaptop(laptopArrayList);
 
-        Laptop laptop = new Laptop();
-        laptop.setLaptop_id(101);
-        laptop.setLaptop_name("dell");
 
 
         // configure()메소드에 아무값도 입력하지 않으면 hibernate.cfg.xml을 default로 읽어온다
@@ -43,8 +51,9 @@ public class App {
         //System.out.println(s);
 
         //insert를 수행한다.
-        session.save(student);
         session.save(laptop);
+        session.save(student);
+
 
         tx.commit();
 
