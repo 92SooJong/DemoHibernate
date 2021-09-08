@@ -19,12 +19,15 @@ public class App {
         Laptop laptop = new Laptop();
         laptop.setLid(101);
         laptop.setLaptop_name("dell");
-        
-        List<Laptop> laptopArrayList = new ArrayList<>();
-        laptopArrayList.add(laptop);
+
 
         // insert할 데이터를 셋팅한다.
         Student student = new Student();
+        laptop.setStudent(student);
+
+        List<Laptop> laptopArrayList = new ArrayList<>();
+        laptopArrayList.add(laptop);
+
         //StudentName studentName = new StudentName();
         student.setSid(2);
         student.setName("Soojong");

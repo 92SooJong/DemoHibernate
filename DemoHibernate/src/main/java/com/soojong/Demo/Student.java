@@ -15,6 +15,9 @@ public class Student { // POJO
     @Transient // DB에 반영되지 않음
     private String addr;
     private int grade;
+
+    // Laptop에 있는 student 필드와 매핑됨을 알려준다.
+    // mappedBy를 하지 않으면 중간 테이블이 생성된다.
     @OneToMany(mappedBy = "student")
     private List<Laptop> laptop;
 
@@ -24,6 +27,7 @@ public class Student { // POJO
     }
 
     public void setLaptop(List<Laptop> laptop) {
+
         this.laptop = laptop;
     }
 
